@@ -8,7 +8,8 @@
 }
 
 body {
-    background-image: url('/landing1.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-image: url('/landing1.svg'), url('/Landing2.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom;
+    background-size: 100%, 100% 50%;
 }
