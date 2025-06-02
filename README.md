@@ -1,4 +1,4 @@
-# 💸 PayZap
+# 💸 PayZap (This project is in development)
 
 **PayZap** is a modern and secure payment transfer and digital wallet app built for seamless money management. Whether you want to send money to friends, pay bills, or keep track of your wallet balance, PayZap provides a fast, intuitive, and reliable experience.
 
