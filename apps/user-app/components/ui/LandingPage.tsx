@@ -45,7 +45,7 @@ const LandingPage = () => {
                 Manage your money effortlessly with our all-in-one wallet app. Send payments instantly, track balances, and stay in control.
                 </p>
             </div>
-            <div className='flex justify-center pt-20'>
+            <div className='flex justify-center pt-10'>
                 <button className='flex bg-purple-500 text-white py-2 px-4 rounded-full items-center font-semibold'>Get Started <span className='font-bold'><MdArrowForwardIos /></span></button>
             </div>
             <div className='w-full pt-20 flex pr-20 justify-center rounded-lg overflow-hidden items-center'>
