@@ -50,8 +50,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
+        <body className={inter.className}>
         <AppbarClient />
-        <body className={inter.className}>{children}</body>
+        <div className="px-16 py-8">
+        {children}
+        </div>
+        </body>
       </Providers>
     </html>
   );

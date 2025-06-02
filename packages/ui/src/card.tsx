@@ -10,7 +10,7 @@ export function Card({
       <h2 className="text-xl border-b pb-2">
         {title}
       </h2>
-      <p>{children}</p>
+      <div>{children}</div>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import prisma from "@repo/db/client";
+import { BalanceCard } from "../../../components/BalanceCard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
 import { AddMoney } from "../../../components/AddmoneyCard";
-import { BalanceCard } from "../../../components/BalanceCard";
 import { OnRampTransactions } from "../../../components/OnRampTransaction";
 
 async function getBalance() {
@@ -12,6 +12,7 @@ async function getBalance() {
             userId: Number(session?.user?.id)
         }
     });
+    console.log("Balance: ", balance)
     return {
         amount: balance?.amount || 0,
         locked: balance?.locked || 0
