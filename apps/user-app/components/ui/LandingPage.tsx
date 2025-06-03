@@ -46,7 +46,7 @@ const LandingPage = () => {
                 </p>
             </div>
             <div className='flex justify-center pt-10'>
-                <button className='flex bg-purple-500 text-white py-2 px-4 rounded-full items-center font-semibold'>Get Started <span className='font-bold'><MdArrowForwardIos /></span></button>
+                <button className='flex bg-blue-200 text-black py-2 px-4 rounded-full items-center font-semibold'>Get Started <span className='font-bold'><MdArrowForwardIos /></span></button>
             </div>
             <div className='w-full pt-20 flex pr-20 justify-center rounded-lg overflow-hidden items-center'>
                 <Image src='/hero3.svg' alt='hero' width={1000} height={1000} />
