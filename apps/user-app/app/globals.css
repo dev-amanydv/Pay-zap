@@ -11,5 +11,5 @@ body {
     background-image: url('/landing1.svg'), url('/Landing2.svg');
     background-repeat: no-repeat, no-repeat;
     background-position: top, bottom;
-    background-size: 100%, 100% 50%;
+    background-size: 100% 51%, 100% 50%;
 }

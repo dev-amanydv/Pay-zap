@@ -7,7 +7,14 @@ module.exports = {
     "../../packages/ui/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 5s linear infinite',
+        'spin-normal': 'spin 3s linear infinite',
+        'spin-fast': 'spin 1s linear infinite',
+
+      }
+    },
   },
   plugins: [],
 }
