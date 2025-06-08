@@ -1,6 +1,6 @@
-# 💸 PayZap (This project is in development)
+# 💸 FlashVault (This project is in development)
 
-**PayZap** is a modern and secure payment transfer and digital wallet app built for seamless money management. Whether you want to send money to friends, pay bills, or keep track of your wallet balance, PayZap provides a fast, intuitive, and reliable experience.
+**FlashVault** is a modern and secure payment transfer and digital wallet app built for seamless money management. Whether you want to send money to friends, pay bills, or keep track of your wallet balance, FlashVault provides a fast, intuitive, and reliable experience.
 
 ---
 
@@ -39,7 +39,7 @@
 1. **Clone the repository**
    ```bash
    git clone https://github.com/dev-amanydv/pay-zap.git
-   cd payzap
+   cd flashvault
    ```
 2. **Install dependeancies**
     ```bash

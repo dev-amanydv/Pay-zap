@@ -7,11 +7,11 @@ import { AppbarClient } from "../AppbarClient";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PayZap – Secure & Instant Payment Transfers",
+  title: "FlashVault – Secure & Instant Payment Transfers",
   description:
-    "PayZap is a modern payment platform that enables fast, secure, and seamless money transfers. Send and receive money instantly with advanced encryption and real-time tracking.",
+    "FlashVault is a modern payment platform that enables fast, secure, and seamless money transfers. Send and receive money instantly with advanced encryption and real-time tracking.",
   keywords: [
-    "PayZap",
+    "FlashVault",
     "Payment App",
     "Money Transfer",
     "Send Money",
@@ -25,17 +25,17 @@ export const metadata: Metadata = {
   authors: [{ name: "Aman Yadav", url: "https://github.com/dev-amanydv" }],
   creator: "Aman Yadav",
   openGraph: {
-    title: "PayZap – Secure & Instant Payment Transfers",
+    title: "FlashVault – Secure & Instant Payment Transfers",
     description:
-      "Experience hassle-free digital payments with PayZap. Send, receive, and manage money effortlessly on a secure and intuitive platform.",
-    url: "https://payzap.app", // replace with your actual URL
-    siteName: "PayZap",
+      "Experience hassle-free digital payments with FlashVault. Send, receive, and manage money effortlessly on a secure and intuitive platform.",
+    url: "https://flashvault.app", // replace with your actual URL
+    siteName: "flashvault",
     images: [
       {
-        url: "https://payzap.app/og-image.png", // update this to your actual OG image
+        url: "https://flashvault.app/og-image.png", // update this to your actual OG image
         width: 1200,
         height: 630,
-        alt: "PayZap - Send and receive money easily",
+        alt: "flashvault - Send and receive money easily",
       },
     ],
     type: "website",
@@ -52,7 +52,7 @@ export default function RootLayout({
       <Providers>
         <body className={inter.className}>
         <AppbarClient />
-        <div className="px-16 py-8">
+        <div className="px-4 sm:px-16 py-4 sm:py-8">
         {children}
         </div>
         </body>

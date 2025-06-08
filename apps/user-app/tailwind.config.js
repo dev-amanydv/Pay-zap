@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  DarkMode: 'class',
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,6 +14,8 @@ module.exports = {
         'spin-normal': 'spin 3s linear infinite',
         'spin-fast': 'spin 1s linear infinite',
 
+      },
+      colors: {
       }
     },
   },

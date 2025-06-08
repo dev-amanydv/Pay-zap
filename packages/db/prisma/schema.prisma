@@ -17,6 +17,13 @@ model User {
   Balance           Balance[]
 }
 
+model Feedback {
+  id                Int                 @id @default(autoincrement())
+  email             String         
+  name              String
+  feedback          String
+}
+
 model Merchant {
   id        Int      @id @default(autoincrement())
   email     String   @unique

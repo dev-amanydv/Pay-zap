@@ -6,12 +6,3 @@
     margin: 0;
     padding: 0;
 }
-
-body {
-    background-image: url('/landing1.svg');
-    background: #091D36;
-    background: radial-gradient(circle, rgba(9, 29, 54, 1) 0%, rgba(1, 13, 29, 1) 100%);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% ;
-}
