@@ -60,7 +60,7 @@ const LandingPage = () => {
     
   }
   return (
-    <div className="bg-landingpage">
+    <div className="bg-landingpage pt-10 md:px-16">
       <nav className="flex items-center text-md font-extralight justify-between text-black">
         <div
           className={`${poppins.className} text-4xl flex flex-col justify-center items-center font-semibold text-blue-800`}
@@ -111,7 +111,7 @@ const LandingPage = () => {
             </Link>
           </div>
           <div className="w-fit mx-auto relative pt-20 flex justify-center rounded-lg overflow-hidden items-center">
-            <Image src="/hero3.svg" className="" alt="hero" width={1000} height={1000} />
+            <Image src="/hero-3.svg" className="" alt="hero" width={1000} height={1000} />
           </div>
         </section>
         <section id="features" className="text-white p-8 w-full">

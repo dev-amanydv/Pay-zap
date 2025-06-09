@@ -69,6 +69,11 @@ export const authOptions: AuthOptions = {
           },
         })
     ],
+    pages: {
+        signIn: '/auth/login',
+        newUser: '/auth/signup'
+    }
+    ,
     secret: process.env.JWT_SECRET || "secret",
     callbacks: {
         async session({ token, session }: { token: JWT; session: Session }) {

@@ -1,6 +1,9 @@
 import { Inter } from "next/font/google";
 import { SidebarItem } from "../../components/SidebarItem";
 import { FaExchangeAlt, FaHome, FaWallet } from "react-icons/fa";
+import { IoWalletSharp } from "react-icons/io5";
+import { MdAccountCircle } from "react-icons/md";
+import { AppbarClient } from "../../AppbarClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +21,17 @@ const sidebarItems = [{
   title: "Transfer",
   icon: <FaExchangeAlt />,
   href: "/transfer"
+},
+{
+    title: "My Wallets",
+    icon: <IoWalletSharp />,
+    href: "/my-wallets"
+  
+},
+{
+  title: "Profile",
+  icon:<MdAccountCircle />,
+  href: "/profile"
 }]
 
 export default function Layout({
@@ -26,8 +40,10 @@ export default function Layout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <div className="flex pt-16">
-        <div className="w-72 border-r border-slate-300 min-h-screen mr-4 p-4">
+    <div>
+      <AppbarClient/>
+      <div className={` ${inter.className} flex pt-16`}>
+        <div className="border-r border-slate-300 min-h-screen mr-4 p-4">
                 { sidebarItems.map((item) => (
                   <div key={item.title} className="mb-4">
                     <SidebarItem href={item.href} title={item.title} icon={item.icon} />
@@ -38,5 +54,8 @@ export default function Layout({
           {children}
         </div>
     </div>
+
+    </div>
+    
   );
 }

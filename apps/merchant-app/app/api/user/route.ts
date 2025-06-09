@@ -5,8 +5,10 @@ import bcrypt from "bcrypt";
 export const GET = async () => {
     try {
         const hashedPassword = await bcrypt.hash("defaultPassword", 10);
-        await prisma.user.create({
-            data: {
+        await prisma.user.upsert({
+            where: { email: "test@example.com" },
+            update: {}, // leave empty if you don't want to update anything
+            create: {
                 email: "test@example.com",
                 name: "Test User",
                 number: "+1234567890",

@@ -15,6 +15,7 @@ model User {
   password          String
   OnRampTransaction OnRampTransaction[]
   Balance           Balance[]
+  Wallet            Wallet[]
 }
 
 model Feedback {
@@ -43,6 +44,13 @@ model OnRampTransaction {
 }
 
 model Balance {
+  id     Int  @id @default(autoincrement())
+  userId Int  @unique
+  amount Int
+  locked Int
+  user   User @relation(fields: [userId], references: [id])
+}
+model Wallet {
   id     Int  @id @default(autoincrement())
   userId Int  @unique
   amount Int

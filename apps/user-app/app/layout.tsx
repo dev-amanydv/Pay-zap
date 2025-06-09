@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "../provider";
-import { AppbarClient } from "../AppbarClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,8 +50,7 @@ export default function RootLayout({
     <html lang="en">
       <Providers>
         <body className={inter.className}>
-        <AppbarClient />
-        <div className="px-4 sm:px-16 py-4 sm:py-8">
+        <div className="">
         {children}
         </div>
         </body>

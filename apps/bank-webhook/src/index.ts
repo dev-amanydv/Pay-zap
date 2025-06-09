@@ -3,7 +3,10 @@ import db from "@repo/db/client";
 const app = express();
 
 app.use(express.json())
-
+app.use((req, res, next) => {
+    console.log(`[INCOMING REQUEST] ${req.method} ${req.url}`);
+    next();
+  });
 app.get("/", (req,res) => {
     res.json({
         message: "Web-hook active"
@@ -11,6 +14,7 @@ app.get("/", (req,res) => {
 })
 
 app.post("/hdfc-webhook", async (req, res) => {
+    console.log("Webhook hit with body: ", req.body);
     //TODO: Add zod validation here?
     //TODO: HDFC bank should ideally send us a secret so we know this is sent by them
     const paymentInformation: {
@@ -22,18 +26,22 @@ app.post("/hdfc-webhook", async (req, res) => {
         userId: req.body.user_identifier,
         amount: req.body.amount
     };
-
+    console.log("ready to update balance")
     try {
         await db.$transaction([
-            db.balance.updateMany({
+            db.balance.upsert({
                 where: {
                     userId: Number(paymentInformation.userId)
                 },
-                data: {
+                update: {
                     amount: {
-                        // You can also get this from your DB
                         increment: Number(paymentInformation.amount)
                     }
+                },
+                create: {
+                    userId: Number(paymentInformation.userId),
+                    amount: Number(paymentInformation.amount),
+                    locked: 0
                 }
             }),
             db.onRampTransaction.updateMany({
@@ -45,7 +53,7 @@ app.post("/hdfc-webhook", async (req, res) => {
                 }
             })
         ]);
-
+        console.log("Balance and onRamp status updated.")
         res.json({
             message: "Captured"
         })
