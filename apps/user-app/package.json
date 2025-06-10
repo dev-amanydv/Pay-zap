@@ -6,7 +6,9 @@
     "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@react-three/fiber": "^8.13.6",
