@@ -5,6 +5,7 @@ import { authOptions } from "../../lib/auth";
 import { AddMoney } from "../../../components/AddmoneyCard";
 import { OnRampTransactions } from "../../../components/OnRampTransaction";
 
+
 async function getBalance() {
     const session = await getServerSession(authOptions);
     const balance = await prisma.balance.findFirst({
@@ -28,12 +29,12 @@ async function getOnRampTransactions() {
             userId: Number(session?.user?.id)
         }
     });
-    return txns.map(t => ({
+    return txns.map((t: any) => ({
         time: t.startTime,
         amount: t.amount,
         status: t.status,
-        provider: t.provider
-    }))
+        provider: t.provider,
+      }));
 }
 
 export default async function() {
