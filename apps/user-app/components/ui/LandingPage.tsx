@@ -116,13 +116,13 @@ const LandingPage = () => {
             </Link>
           </motion.div>
           <div className="w-fit mx-auto relative pt-20 flex justify-center rounded-lg overflow-hidden items-center">
-            <Image src="/hero-4.svg" className="" alt="hero" width={1000} height={1000} />
+            <Image src="/hero-4.svg" className="opacity-70" alt="hero" width={1000} height={1000} />
           </div>
         </section>
         <section id="features" className="text-white p-8 w-full">
           <div className=" my-10 font-bold w-fit text-neutral-50 px-5 text-4xl">Why Choose Us?</div>
           <div className="flex flex-col md:grid  md:grid-cols-5 grid-cols-1 gap-10">
-          <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600 sm:col-span-3 overflow-hidden relative p-6 text-white shadow-lg rounded-3xl h-96">
+          <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600/40 sm:col-span-3 overflow-hidden relative p-6 text-white shadow-lg rounded-3xl h-96">
                 <Image src="/circles.svg" className="absolute -top-16" alt="feat1" width={500} height={500} />
                 <Image src="/upi-qr.svg" className="absolute top-3 md:left-44" alt="feat1" width={500} height={500} />
                 <div className="absolute top-0 left-0 h-5/6 w-full bg-[linear-gradient(to_bottom,_rgba(0,0,0,0),_rgba(0,0,0,1))] pointer-events-none"></div>
@@ -131,7 +131,7 @@ const LandingPage = () => {
                 <h1 className="text-2xl w-96 absolute bottom-1/4 font-bold max-w-lg pl-5 bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-100 bg-clip-text text-transparent">Instant Money Transfer with UPI/QR</h1>
                 <p className="text-sm w-3/4 text-neutral-200 absolute pl-6 bottom-9">Send and receive money instantly via UPI or by scanning any QR code — fast, secure, and hassle-free.</p>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600 overflow-hidden relative p-6 text-white shadow-lg rounded-3xl h-96 sm:col-span-2">
+            <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600/40 overflow-hidden relative p-6 text-white shadow-lg rounded-3xl h-96 sm:col-span-2">
                 <Image src={'/scribble.png'} className="absolute top-20 opacity-10 animate-bounce" alt="scribble" width={1000} height={1000} />
                 <Image src="/pay-bills.svg" className="absolute top-10 left-14 md:left-52" alt="feat1" width={250} height={100} />
                 <div className="absolute top-0 left-0 h-5/6 w-full bg-[linear-gradient(to_top,_rgba(0,0,0,1),_rgba(0,0,0,0))] pointer-events-none"></div> 
@@ -140,7 +140,7 @@ const LandingPage = () => {
                 <h1 className="text-2xl w-96 absolute bottom-1/4 font-bold max-w-lg bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-100 bg-clip-text text-transparent">One Tap Bill Payments and Recharges</h1>
                 <p className="text-sm w-3/4 text-neutral-200 absolute  bottom-6">Send and receive money instantly via UPI or by scanning any QR code — fast, secure, and hassle-free.</p>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600 p-6 overflow-hidden relative text-white shadow-lg rounded-3xl h-96 sm:col-span-2">
+            <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600/40 p-6 overflow-hidden relative text-white shadow-lg rounded-3xl h-96 sm:col-span-2">
               <Image src={'/ring-square.png'} className="absolute -top-10 -left-1 opacity-10 animate-spin-slow" alt="ring-square" width={500} height={500} />
               <Image src={'/split-pay.svg'} className="absolute top-10 left-28 sm:left-36 " alt="ring-square" width={2000} height={2000} />
               <div className="absolute top-0 left-0 h-5/6 w-full bg-[linear-gradient(to_top,_rgba(0,0,0,1),_rgba(0,0,0,0))] pointer-events-none"></div> 
@@ -150,7 +150,7 @@ const LandingPage = () => {
                 <p className="text-sm w-3/4 text-neutral-200 absolute  bottom-6">Split restaurant bills, rent, or any group expense and track who paid what — perfect for students and roommates.
                 </p>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600 overflow-hidden p-6 relative text-white shadow-lg rounded-3xl h-96 col-span-3">
+            <motion.div whileHover={{ scale: 1.03 }} animate={{ scale: 1}} transition={{ duration:0.3}} className="bg-neutral-600/40 overflow-hidden p-6 relative text-white shadow-lg rounded-3xl h-96 col-span-3">
                <Image src={'/ring-element.png'} alt="ring-element" className="opacity-20 animate-spin-slow absolute -top-40 first-line:" width={1000} height={1000} />
                <Image src={'/wallet-pay.svg'} alt="ring-element" className=" absolute rotate-45 top-6 first-line" width={200} height={200} />
                <Image src={'/virtual-card.svg'} alt="ring-element" className=" absolute -rotate-45 left-[200px] md:left-[500px] -top-10 first-line:" width={250} height={250} />
