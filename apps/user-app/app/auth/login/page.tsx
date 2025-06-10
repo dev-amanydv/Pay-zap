@@ -6,22 +6,27 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function LoginPage() {
-  const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState('');
+  const [error, setError] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
+    setLoading(true);
+    setError('')
     const res = await signIn('credentials', {
       redirect: false,
       phone,
       password,
     })
+    setLoading(false);
 
     if (res?.ok) {
       router.push('/')
     } else {
-      alert('Invalid credentials')
+        setError('Something went wrong');
     }
   }
 
@@ -29,10 +34,10 @@ export default function LoginPage() {
     <div className='w-screen h-screen grid grid-cols-2'>
         
         <div className='col-span-1'>
-            <div className='flex justify-center bg-login items-center h-screen'>
+            <div className='flex justify-center items-center h-screen'>
 
-                <form onSubmit={handleLogin} className="p-6 rounded-lg backdrop-blur-md bg-gray-200/30 max-w-md mx-auto">
-                    <h2 className="text-2xl text-center font-bold mb-4">Welcome Back</h2>
+                <form onSubmit={handleLogin} className="p-6 rounded-lg backdrop-blur-md bg-neutral-100/10 max-w-md mx-auto">
+                    <h2 className="text-2xl text-center  font-bold mb-4">Welcome Back</h2>
                     <p className='text-center text-neutral-500'>Enter your email and password to access account.</p>
                     <div className='my-10'>
                         <div className='mt-3'>
@@ -55,13 +60,13 @@ export default function LoginPage() {
                             </Link>
                             
                         </div>
-                        <div className=' text-blue-600 text-sm mt-3'> 
+                        <button disabled={loading} className='w-full  bg-slate-800 text-white py-1 rounded-md mt-5' type="submit">{loading ? "Logging In..." : "Login"}</button>
+                        <div className=' text-center mt-20 text-blue-600 text-md'> 
                             <Link href={'/auth/signup'}>
-                                 Already have an account?
+                                 <h1 className='text-neutral-600'>Don't have an account? <span className='text-black'>Sign Up</span></h1>
                             </Link>
                             
                         </div>
-                        <button className='w-full  bg-slate-800 text-white py-1 rounded-md mt-5' type="submit">Login</button>
                     </div>
                     
                 </form>

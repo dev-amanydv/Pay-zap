@@ -1,14 +1,12 @@
 import React from 'react'
-import { Spotlight } from '../../components/ui/Spotlight'
 
-const page = () => {
+const Test = () => {
   return (
-    <div className='w-full h-full'>
-        <div className='w-96 h-96'>
-        <Spotlight/>
-        </div>
+    <div>
+      Fuck off
     </div>
   )
 }
 
-export default page
+export default Test
+
