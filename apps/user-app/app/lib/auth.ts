@@ -29,14 +29,16 @@ export const authOptions: AuthOptions = {
               return null;
             }
             
-            const hashedPassword = await bcrypt.hash(credentials.password, 10);
             const existingUser = await db.user.findFirst({
                 where: {
                     number: credentials.phone
                 }
             });
+            if (!existingUser) {
+                throw new Error("User does not exist");
+              }
 
-            if (existingUser) {
+            
                 const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
                 if (passwordValidation) {
                     return {
@@ -45,27 +47,11 @@ export const authOptions: AuthOptions = {
                         email: existingUser.number
                     }
                 }
-                return null;
-            }
-
-            try {
-                const user = await db.user.create({
-                    data: {
-                        number: credentials.phone,
-                        password: hashedPassword
-                    }
-                });
+                
             
-                return {
-                    id: user.id.toString(),
-                    name: user.name || undefined,
-                    email: user.number
-                }
-            } catch(e) {
-                console.error(e);
-            }
 
-            return null
+
+            return null;
           },
         })
     ],
@@ -84,4 +70,3 @@ export const authOptions: AuthOptions = {
         }
     }
   }
-  

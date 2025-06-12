@@ -181,14 +181,14 @@ const LandingPage = () => {
                 <div className="flex gap-4 justify-between">
                   <input value={feedData.name} onChange={(e) => {
                     setFeedData({ ...feedData, name: e.target.value });
-                  }} placeholder="Your Name" type="text" className="h-7 py-1 w-full px-2 text-sm bg-neutral-200 rounded-lg"/>
+                  }} placeholder="Your Name" type="text" className="h-7 placeholder:text-neutral-600 text-black py-1 w-full px-2 text-sm bg-neutral-400 rounded-lg"/>
                   <input  value={feedData.email} onChange={(e) => {
                     setFeedData({ ...feedData, email: e.target.value });
-                  }} placeholder="Your Email" type="text" className="h-7 w-full py-1 px-2 text-sm bg-neutral-200 rounded-lg"/>
+                  }} placeholder="Your Email" type="text" className="h-7 text-black placeholder:text-neutral-600 w-full py-1 px-2 text-sm bg-neutral-400 rounded-lg"/>
                   </div>
                   <textarea value={feedData.feedback} onChange={(e) => {
                       setFeedData({ ...feedData, feedback: e.target.value });
-                    }} placeholder="Description" className="h-7 py-1 px-2 text-sm bg-neutral-200 rounded-lg"/>
+                    }} placeholder="Description" className="h-7 py-1 px-2 text-black placeholder:text-neutral-600 text-sm bg-neutral-400 rounded-lg"/>
                 </div>
                 <p className="text-[0.8rem] text-red-500">
                   {errors.name}

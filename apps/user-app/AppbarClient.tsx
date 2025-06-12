@@ -12,8 +12,7 @@ export function AppbarClient() {
     return (
         <>
         {!isLandingPage && <Appbar onSignin={signIn} onSignout={async () => {
-                await signOut();
-                router.push("/")
+            await signOut({ callbackUrl: "/" });
             }} user={session.data?.user} />}
         </>
     )

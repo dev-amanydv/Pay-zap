@@ -20,13 +20,14 @@ export default function LoginPage() {
       redirect: false,
       phone,
       password,
-    })
+      callbackUrl: undefined,
+    });
     setLoading(false);
 
     if (res?.ok) {
-      router.push('/')
+      router.push('/');
     } else {
-        setError('Something went wrong');
+      setError(res?.error || 'Something went wrong');
     }
   }
 
@@ -57,12 +58,12 @@ export default function LoginPage() {
                                 <h1 className='text-sm text-blue-600'>
                                     Forgot Your Password?
                                 </h1>
-                            </Link>
-                            <div className='pt-2 text-red-500'> {error} </div>
-                            
+                            </Link>                            
                         </div>
+
                         <button disabled={loading} className='w-full  bg-slate-800 text-white py-1 rounded-md mt-5' type="submit">{loading ? "Logging In..." : "Login"}</button>
-                        <div className=' text-center mt-20 text-blue-600 text-md'> 
+                        <div className='pt-4  text-center text-sm text-red-500'> {error} </div>
+                        <div className=' text-center mt-10 text-blue-600 text-md'> 
                             <Link href={'/auth/signup'}>
                                  <h1 className='text-neutral-600'>Don't have an account? <span className='text-black'>Sign Up</span></h1>
                             </Link>

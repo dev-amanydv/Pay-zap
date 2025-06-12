@@ -6,27 +6,34 @@ import { FaCirclePlus, FaMoneyBillTransfer } from "react-icons/fa6";
 import { authOptions } from "../../lib/auth";
 import { getServerSession } from "next-auth";
 import prisma from "@repo/db/client";
+import { redirect } from "next/navigation";
 
 async function getBalance() {
     const session = await getServerSession(authOptions);
+    if (!session || !session.user?.id) {
+        redirect("/");
+    }
+
     const balance = await prisma.balance.findFirst({
         where: {
-            userId: Number(session?.user?.id)
-        }
+            userId: Number(session.user.id),
+        },
     });
+
     const walletBalance = await prisma.wallet.findFirst({
-        where:{
-            userId: Number(session?.user?.id)
-        }
-    })
-    console.log(session)
-    console.log("User id: ", session?.user?.id)
-    console.log("Balance: ", balance)
+        where: {
+            userId: Number(session.user.id),
+        },
+    });
+
+    console.log("User id: ", session.user.id);
+    console.log("Balance: ", balance);
+
     return {
         amount: balance?.amount || 0,
         locked: balance?.locked || 0,
-        walletBalance: walletBalance?.amount || 0
-    }
+        walletBalance: walletBalance?.amount || 0,
+    };
 }
 async function getUser() {
     const session = await getServerSession(authOptions);
