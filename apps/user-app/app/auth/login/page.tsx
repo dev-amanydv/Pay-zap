@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { signIn } from 'next-auth/react'
+import { signIn, getSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,19 +13,38 @@ export default function LoginPage() {
   const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     setLoading(true);
-    setError('')
+    setError('');
     const res = await signIn('credentials', {
       redirect: false,
       phone,
       password,
-      callbackUrl: undefined,
+      callbackUrl: '/dashboard',
     });
+
     setLoading(false);
 
     if (res?.ok) {
-      router.push('/');
+      let retries = 0;
+
+      const checkSessionAndRedirect = async () => {
+        const session = await getSession();
+        console.log("Session: ", session)
+        if (session) {
+            console.log("redirecting to /dashboard")
+          router.push('/dashboard');
+        } else if (retries < 5) {
+            console.log("Trying again to redirect")
+          retries++;
+          setTimeout(checkSessionAndRedirect, 500); // retry every 500ms
+        } else {
+            console.log("Login successful, but session could not be verified. Please refresh.")
+          setError('Login successful, but session could not be verified. Please refresh.');
+        }
+      };
+
+      checkSessionAndRedirect();
     } else {
       setError(res?.error || 'Something went wrong');
     }

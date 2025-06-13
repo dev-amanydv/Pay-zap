@@ -48,6 +48,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/FlashVault.jpg" type="image/jpeg" />
+      </head>
       <Providers>
         <body className={inter.className}>
         <div className="">

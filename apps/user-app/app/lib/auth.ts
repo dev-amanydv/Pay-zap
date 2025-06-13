@@ -47,7 +47,9 @@ export const authOptions: AuthOptions = {
                               name: existingUser.name || undefined,
                               email: existingUser.number
                           }
-                      }
+                        } else {
+                            throw new Error("Sorry, your password was incorrect. Please double-check your password.")
+                        }
                   return null;
             } catch (error:any) {
                 console.log("Error in authorize: ", error);

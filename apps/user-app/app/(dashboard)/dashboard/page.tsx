@@ -6,22 +6,19 @@ import { FaCirclePlus, FaMoneyBillTransfer } from "react-icons/fa6";
 import { authOptions } from "../../lib/auth";
 import { getServerSession } from "next-auth";
 import prisma from "@repo/db/client";
-import { redirect } from "next/navigation";
-import { div } from "motion/react-client";
+
 
 async function getBalance() {
   try {
     const session = await getServerSession(authOptions);
     if (!session || !session.user?.id) {
-      redirect("/");
+      throw new Error("Unauthenticated user")
     }
-
     const balance = await prisma.balance.findFirst({
       where: {
         userId: Number(session.user.id),
       },
     });
-
     const walletBalance = await prisma.wallet.findFirst({
       where: {
         userId: Number(session.user.id),
