@@ -25,33 +25,44 @@ export const authOptions: AuthOptions = {
             password: { label: "Password", type: "password", required: true }
           },
           async authorize(credentials) {
-            if (!credentials?.phone || !credentials?.password) {
-              return null;
-            }
-            
-            const existingUser = await db.user.findFirst({
-                where: {
-                    number: credentials.phone
-                }
-            });
-            if (!existingUser) {
-                throw new Error("User does not exist");
-              }
-
-            
-                const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
-                if (passwordValidation) {
-                    return {
-                        id: existingUser.id.toString(),
-                        name: existingUser.name || undefined,
-                        email: existingUser.number
+            try {
+                if (!credentials?.phone || !credentials?.password) {
+                    return null;
+                  }
+                  
+                  const existingUser = await db.user.findFirst({
+                      where: {
+                          number: credentials.phone
+                      }
+                  });
+                  if (!existingUser) {
+                      throw new Error("User does not exist");
                     }
-                }
+      
+                  
+                      const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
+                      if (passwordValidation) {
+                          return {
+                              id: existingUser.id.toString(),
+                              name: existingUser.name || undefined,
+                              email: existingUser.number
+                          }
+                      }
+                  return null;
+            } catch (error:any) {
+                console.log("Error in authorize: ", error);
+                if (
+                    error.name === "PrismaClientKnownRequestError" ||
+                    error.message?.includes("getaddrinfo ENOTFOUND") || // DNS error
+                    error.message?.includes("ECONNREFUSED") ||          // Connection refused
+                    error.message?.includes("Network error")            // Generic fallback
+                  ) {
+                    throw new Error("Your Network is down");
+                  }
                 
-            
-
-
-            return null;
+                throw error;
+            }
+           
           },
         })
     ],
