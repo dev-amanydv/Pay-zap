@@ -53,6 +53,9 @@ export default function RootLayout({
       </head>
       <Providers>
         <body className={inter.className}>
+          <div className="bg-slate-900 font-semibold text-white text-center flex items-center justify-center h-10 w-full">
+              <h1><span className="text-lg">🚀  </span> Currently in development, Join our early access list!</h1>
+          </div>
         <div className="">
         {children}
         </div>

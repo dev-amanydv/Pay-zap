@@ -43,17 +43,19 @@ export default function Layout({
 }): JSX.Element {
   return (
     <div>
+      <div className="bg-slate-900 mt-6 font-semibold text-white text-center flex items-center justify-center h-10 w-full">
+              <h1><span className="text-lg">🚀  </span> Currently in development, Join our early access list!</h1>
+          </div>
       <Appbar/>
       <div className={` ${inter.className} flex`}>
-        <div className="border-r fixed pt-20  flex flex-col justify-between  h-screen  border-slate-300 mr-4 p-4">
+        <div className="border-r fixed pt-6  flex flex-col justify-between  h-screen pb-10  border-slate-300 mr-4 p-4">
           <div>
-          { sidebarItems.map((item) => (
+          { sidebarItems.map((item:any) => (
                   <div key={item.title} className="mb-4">
                     <SidebarItem href={item.href} title={item.title} icon={item.icon} />
                   </div>
                 ))}
           </div>
-               
           <LogoutClient/>
         </div>
         <div className="flex-1 ml-24 p-20">
