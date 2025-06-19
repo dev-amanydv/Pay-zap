@@ -48,7 +48,7 @@ export default function Layout({
           </div>
       <Appbar/>
       <div className={` ${inter.className} flex`}>
-        <div className="border-r fixed pt-6  flex flex-col justify-between  h-screen pb-10  border-slate-300 mr-4 p-4">
+        <div className="border-r fixed pt-6  flex flex-col   h-screen pb-10  border-slate-300 mr-4 p-4">
           <div>
           { sidebarItems.map((item:any) => (
                   <div key={item.title} className="mb-4">

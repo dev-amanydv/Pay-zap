@@ -51,7 +51,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className='w-screen h-screen grid grid-cols-2'>
+    <div className='w-screen h-screen grid sm:grid-cols-2 '>
         
         <div className='col-span-1'>
             <div className='flex justify-center items-center h-screen'>
