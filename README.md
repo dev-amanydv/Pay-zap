@@ -17,7 +17,6 @@
 ---
 
 ## 📸 Screenshots
-
 | Home | Transfer | Wallet |
 |------|----------|--------|
 | ![Home](./public/screenshots/home.png) | ![Transfer](./public/screenshots/transfer.png) | ![Wallet](./public/screenshots/wallet.png) |
